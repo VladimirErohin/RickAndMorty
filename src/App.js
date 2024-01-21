@@ -10,6 +10,7 @@ function App() {
     useEffect(() => {
         //getData()
         getCharacters()
+
     }, []);
 
     function getCharacters(){

@@ -3,9 +3,6 @@ import styles from './Modal.module.scss';
 
 const Modal = ({data}) => {
 
-
-    console.log(data[0], 'DATA in modal')
-
     let person = {...data[0]}
 
     return (

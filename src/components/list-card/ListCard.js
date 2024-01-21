@@ -37,7 +37,7 @@ const ListCard = () => {
     console.log("currentPage- ", currentPage);
 
     return (
-        <div className={styles.list} id="top">
+        <div className={styles.list}>
             <InfiniteScroll className={styles.list}
                             dataLength={postData} //This is important field to render the next data
                             next={nextPage}
@@ -49,7 +49,7 @@ const ListCard = () => {
                     : characters?.map((ch) => <Card key={ch.id} {...ch}/>)
                 }
             </InfiniteScroll>
-            <ButtonToTop top={"top"}/>
+            <ButtonToTop />
         </div>
     );
 };
