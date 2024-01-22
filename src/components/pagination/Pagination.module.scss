@@ -1,0 +1,26 @@
+.pagination_main{
+  width: 100%;
+  height: 56px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  //border-bottom: 1px solid #eee;
+  position: fixed;
+  z-index: 20;
+
+
+  .pagination_content{
+    //background-color: #c1c1c1;
+    border: 1px solid #ea0f5b;
+    padding: 8px 20px;
+    //margin: 6px;
+    display: flex;
+    justify-content: flex-end;
+
+
+    img{
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
