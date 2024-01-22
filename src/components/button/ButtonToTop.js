@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styles from "./ButtonToTop.module.scss";
 
 function ButtonToTop() {
-    const [show, isShow] = useState("")
+    const [show, isShow] = useState("styles.to_top")
     window.addEventListener("scroll", trackScroll);
 
     function trackScroll() {

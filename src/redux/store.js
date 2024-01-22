@@ -4,8 +4,5 @@ import charactersReducer from "./charactersSlice";
 export const store = configureStore({
     reducer: {
         characters:charactersReducer,
-        // filterSlice,
-        // cartSlice,
-        // pizzas,
     },
 });

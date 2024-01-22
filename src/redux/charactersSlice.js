@@ -6,9 +6,9 @@ const initialState = {
     characters: [],
     currentPage:1,
     countPage: 0,
-    amount: 0,
-    total: 0,
+    person:{},
     isLoading: true,
+    visibly: false,
 };
 
 export const fetchCharacters = createAsyncThunk(
@@ -17,7 +17,6 @@ export const fetchCharacters = createAsyncThunk(
 
 
         try {
-            console.log(currentPage, '-page')
             const {data} = await axios.get(`https://rickandmortyapi.com/api/character/?page=${currentPage}`);
             console.log(data.results)
             console.log(data.info.count)
@@ -43,10 +42,17 @@ export const charactersSlice = createSlice({
     name: 'characters',
     initialState,
     reducers: {
-        setItems: (state, action) => {
-            console.log(action)
+        setCharacters: (state, action) => {
             state.characters = action.payload;
-            // state.countPage = action.payload;
+        },
+        setCurrentPage: (state, action) => {
+            state.currentPage = action.payload
+        },
+        setPerson: (state, action) => {
+            state.person = action.payload
+        },
+        setVisibly: (state, action) => {
+            state.visibly = action.payload
         },
     },
 
@@ -72,7 +78,6 @@ console.log(charactersSlice)
 
 export const selectorPizzasData = (state) => state.characters;
 
-export const {setItems,countPage} = charactersSlice.actions;
+export const {setVisibly,setPerson,setCharacters,setCurrentPage,countPage} = charactersSlice.actions;
 
 export default charactersSlice.reducer;
-

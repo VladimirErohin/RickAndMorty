@@ -5,11 +5,12 @@ import {useDispatch, useSelector} from "react-redux";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {fetchCharacters} from "../../redux/charactersSlice";
 import ButtonToTop from "../button/ButtonToTop";
+import Modal from "../modal/Modal";
 
 const ListCard = () => {
 
     const dispatch = useDispatch();
-    const {characters, countPage, currentPage} = useSelector((state) => state.characters);
+    const {characters, countPage, currentPage, person} = useSelector((state) => state.characters);
     const [postData, setPostData] = useState([]);
     const [page, setPage] = useState(2);
     const [hasMore, setHasMore] = useState(true);
@@ -35,6 +36,7 @@ const ListCard = () => {
     console.log("characters- ", characters);
     console.log("postData- ", postData);
     console.log("currentPage- ", currentPage);
+    console.log("person- ", person);
 
     return (
         <div className={styles.list}>
@@ -50,6 +52,7 @@ const ListCard = () => {
                 }
             </InfiniteScroll>
             <ButtonToTop />
+            <Modal data={characters}/>
         </div>
     );
 };
