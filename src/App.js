@@ -1,27 +1,29 @@
 import {useEffect} from "react";
 import ListCard from "./components/list-card/ListCard";
-import {useDispatch} from 'react-redux';
-import {fetchCharacters} from "./redux/charactersSlice";
-import Pagination from "./components/pagination/Pagination";
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchCharacters, setIsLoading} from "./redux/charactersSlice";
+import Header from "./components/header/Header";
+import {fetchPages} from "./redux/paginationSlice";
+import Loader from "./components/loader/Loader";
 
 function App() {
+    const {isLoading} = useSelector((state) => state.characters);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        //getData()
         getCharacters()
-
+        dispatch(setIsLoading(false))
     }, []);
 
     function getCharacters() {
         dispatch(fetchCharacters());
+        dispatch(fetchPages());
     }
 
     return (
         <main>
-            {/*{data.length>0 ?  data.map(p=><div>{p.name}</div>) : 'loading'}*/}
-            {/*{data?.map(p => <div key={p.id}>{p.name}</div>)}*/}
-            <Pagination/>
+            {isLoading && <Loader/>}
+            <Header/>
             <ListCard/>
         </main>
     );

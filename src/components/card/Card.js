@@ -15,7 +15,7 @@ const Card = (props) => {
     return (
         <div className={styles.card} onClick={isShowModal}>
             <div className={styles.image}><img src={image} alt="picture"/></div>
-            <h3>{name}</h3>
+            <h5>{name}</h5>
         </div>
     );
 };

@@ -1,9 +1,13 @@
-.list{
+.page_list{
   background-color: #c1c1c1;
   margin: 32px 0 0 0;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
   justify-content: center;
-  height: 100vh;
+
+  .page_wrapper{
+    display: flex;
+    background-color: #c1c1c1;
+  }
 }
